@@ -1,0 +1,29 @@
+##
+description = "Default layout"
+
+[global]
+handle = "General"
+==
+<!DOCTYPE html>
+<html lang="nl" data-x="html" data-x-toggle="html-overflow-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{global.website_name}} - {{ this.page.title }}</title>
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    {% partial 'site/head/links' %}
+</head>
+
+<body>
+{% partial 'site/to-top-button' %}
+
+<main>
+    {% partial 'site/header' %}
+    {% page %}
+    {% partial 'site/footer' %}
+</main>
+{% partial 'site/footer-scripts' %}
+</body>
+</html>

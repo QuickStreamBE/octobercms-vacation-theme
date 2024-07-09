@@ -1,0 +1,47 @@
+url = "/omgeving/:slug"
+layout = "default"
+title = "Omgeving Item"
+meta_title = "{{section.title}}"
+
+[collection]
+handle = "OmgevingItem"
+
+[section]
+handle = "Omgeving"
+identifier = "slug"
+value = "{{ :slug }}"
+==
+{% set filteredCollection = collection.whereRelation('category', 'slug', this.param.slug).get()%}
+{% partial "helpers/page-title" title=filteredCollection.first.category.title %}
+<section class="layout-pb-xl layout-pt-lg">
+    <div data-anim-wrap class="container">
+        {% for item in filteredCollection %}
+        <div class="row mb-20">
+            {% if item.image %}
+            <div class="col-lg-4 col-md-4 {% if loop.index is odd %}order-1{% endif %}">
+                <div class="pt-10">
+                    <img
+                        src="{{item.image.path|resize(1000)}}"
+                        alt="image"
+                        class="rounded-12">
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-lg-{% if item.image %}8{%else%}12{%endif%}">
+                <div class="tourCard__content px-10 pt-10">
+                    <h3 class="tourCard__title text-18 fw-500 mt-5">
+                        {{ item.title }}
+                    </h3>
+                    <div class="mt-10">
+                        {{ item.content|raw }}
+                    </div>
+                </div>
+                {% partial "helpers/url-button" url=item.url %}
+            </div>
+        </div>
+        {% if not loop.last %}
+        <div class="line mt-60 mb-60"></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>

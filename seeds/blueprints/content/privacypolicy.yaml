@@ -1,0 +1,16 @@
+uuid: b1c0972a-2656-4b35-8432-740a5111ce7c
+handle: Privacypolicy
+type: single
+name: Privacypolicy
+drafts: true
+
+navigation:
+    parent: Omgeving
+    icon: icon-long-arrow-right
+    order: 150
+
+fields:
+    content:
+        label: Content
+        type: richeditor
+        span: adaptive

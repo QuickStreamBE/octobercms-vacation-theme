@@ -1,0 +1,49 @@
+[section villa]
+handle = "Villa"
+==
+{% set facilitiesFiltered = villa.facilities.where('favorite', true).take(4) %}
+<section data-anim-wrap class="relative p-5 pl-80 mt-150 villa-item">
+    <div class="sectionBg -type-2">
+        <div class="bg-accent-1-05 rounded-24"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 offset-xl-1 col-lg-5">
+                <h2 class="text-30 md:text-24">{{ home.villa_block_title }}</h2>
+
+                <div class="row y-gap-30">
+
+                    <div class="col-12">
+                        <div class="featureIcon -type-1 d-flex">
+                            <div>
+                                <p class="featureIcon__text mt-10">
+                                    {{ home.villa_block_description|raw }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{{home.villa_block_image|resize(700)}}" alt="image" class="rounded-24 object-cover" style="height: 600px">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="layout-pb-xl layout-pt-xl">
+    <div data-anim-wrap class="container">
+        <div class="row y-gap-30">
+            {% for facility in facilitiesFiltered %}
+            <div data-anim-child="slide-up delay-1" class="col-lg-3">
+                <div class="text-center villa-icon-item">
+                    <img src="{{facility.icon.path}}" alt="icon" class="villa-icon">
+
+                    <h3 class="text-20 md:text-30 lh-14 fw-700 mt-30 md:mt-15">{{facility.title}}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

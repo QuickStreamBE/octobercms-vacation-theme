@@ -1,0 +1,42 @@
+[collection]
+handle = "Gastenboek"
+==
+{% set filteredCollection = collection.get().where('favoriet', true)%}
+<section data-anim-wrap class="relative layout-pb-xl layout-pt-md">
+
+    <div data-anim-child="slide-up delay-3" class="container">
+        <div class="row justify-center text-center">
+            <div class="col-auto">
+                <h2 class="text-30 md:text-24">Onze reviews</h2>
+            </div>
+        </div>
+
+        <div class="row justify-center pt-60 md:pt-20">
+            <div class="col-xl-6 col-md-8 col-sm-10">
+                <div class="overflow-hidden js-section-slider" data-slider-cols="xl-1 lg-1 md-1 sm-1 base-1" data-pagination="js-testimonials-pagination">
+                    <div class="swiper-wrapper">
+                        {% for item in filteredCollection %}
+                        <div class="swiper-slide">
+                            <div class="testimonials -type-1 pt-10 text-center">
+
+                                <div class="text-20 fw-500 mt-20 review-text">
+                                    {{ item.omschrijving|striptags|length > 300 ? item.omschrijving|slice(0, 300)|striptags ~ '...' : item.omschrijving|md  }}
+                                </div>
+
+                                <div class="mt-20 md:mt-40">
+                                    <div class="lh-16 text-16 fw-500 ">{{item.title}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="pagination -type-1 justify-center pt-60 md:pt-40 js-testimonials-pagination">
+                        <div class="pagination__button"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

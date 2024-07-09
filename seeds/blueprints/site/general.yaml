@@ -1,0 +1,96 @@
+uuid: 50d6360c-e9ae-49da-b16a-9974ae57f2ba
+handle: General
+type: global
+name: General
+
+navigation:
+    parent: settings
+    icon: icon-cogs
+    description: General theme settings.
+    category: CATEGORY_CMS
+
+fields:
+    website_name:
+        label: Company Name
+        tab: General
+    address:
+        label: Address
+        tab: General
+    email:
+        label: Email
+        tab: General
+    logo:
+        tab: General
+        label: Logo
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    favicon:
+        tab: General
+        label: Favicon
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    facebook_url:
+        label: Facebook URL
+        placeholder: "https://..."
+        tab: General
+    twitter_url:
+        label: Twitter URL
+        placeholder: "https://..."
+        tab: General
+    linkedin_url:
+        label: LinkedIn URL
+        placeholder: "https://..."
+        tab: General
+    banner_villa:
+        tab: Banners
+        label: Villa
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    banner_villa_title:
+        tab: Banners
+        label: Villa Title
+    banner_omgeving:
+        tab: Banners
+        label: Omgeving
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    banner_omgeving_title:
+        tab: Banners
+        label: Omgeving Title
+    banner_gastenboek:
+        tab: Banners
+        label: Gastenboek
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    banner_gastenboek_title:
+        tab: Banners
+        label: Gastenboek Title
+    banner_contact:
+        tab: Banners
+        label: Contact
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    banner_contact_title:
+        tab: Banners
+        label: Contact Title
+    banner_beschikbaarheid:
+        tab: Banners
+        label: Beschikbaarheid
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    banner_beschikbaarheid_title:
+        tab: Banners
+        label: Beschikbaarheid Title
+    theme_color:
+        tab: Color
+        type: dropdown
+        options:
+            orange: Orange
+            blue: Blue

@@ -1,0 +1,35 @@
+[collection]
+handle = "Omgeving"
+==
+{% set filteredCollection = collection.limit(6).get() %}
+<section class="layout-pt-xl layout-pb-xl bg-accent-1-05">
+    <div data-anim-wrap class="container">
+        <div class="row y-gap-30 items-center justify-between">
+            <div data-anim-child="slide-up" class="col-md-3">
+                <h2 class="text-30 md:text-24">{{home.omgeving_title}}</h2>
+                <div class="mt-30 md:mt-10">{{home.omgeving_description|raw}}</div>
+                <a href="{{'omgeving'|page}}" class="button -md -dark-1 bg-accent-1 text-white mt-30 md:mt-20">
+                    Bekijk alle activiteiten
+                    <i class="icon-arrow-top-right ml-10"></i>
+                </a>
+            </div>
+
+            <div data-anim-child="slide-up delay-2" class="col-md-8">
+                <div class="row y-gap-30">
+                    {% for item in collection %}
+                    <div class="col-md-4">
+                        <a href="{{'omgeving-item'|page({slug: item.slug})}}" class="featureCard -type-5 -hover-accent-1">
+                            <div class="featureCard__icon banner-omgeving-icon">
+                                <img src="{{item.image.path}}" alt="image" class="omgeving-icon">
+                            </div>
+
+                            <h4 class="text-18 fw-500 mt-20">{{ item.title }}</h4>
+                            <div class="lh-13 mt-5">{{ item.summary_text }}</div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

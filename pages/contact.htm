@@ -1,0 +1,62 @@
+url = "/contact"
+layout = "default"
+title = "Contact"
+meta_title = "Contact"
+
+[uploadForm contactform]
+group = "Contact form"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_subject = "Nieuwe contact melding"
+mail_recipients[] = "tim@quickstream.be"
+redirect = "/succes"
+feedback_mode = "flash"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+uploader_label = "Drag & Drop your files or Browse"
+maxFiles = 1
+maxFileSize = "2MB"
+maxTotalSize = "5MB"
+fileTypes[application/pdf] = "pdf"
+fileTypes[application/zip] = "zip"
+fileTypes[image/png] = "png"
+fileTypes[image/jpeg] = "jpg"
+==
+<?php
+use Tailor\Models\GlobalRecord;
+public function onInit()
+{
+    $global = GlobalRecord::findForGlobal('General');
+    $this->contactform->setProperty('mail_recipients', [$global->email]);
+}
+?>
+==
+{% partial "helpers/page-title" title=this.page.title %}
+<section class="layout-pb-lg pt-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-10">
+                        {% component 'contactform' %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-30">
+                <div class="map d-block">
+                    <div style="width: 100%">
+                        <iframe width="100%" height="530" frameborder="0" scrolling="no" marginheight="0"
+                                marginwidth="0"
+                                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q={{global.address}}+(My%20Business%20Name)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                            <a href="https://www.maps.ie/population/">Population mapping</a></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

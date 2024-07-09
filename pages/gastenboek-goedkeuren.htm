@@ -1,0 +1,32 @@
+title = "Gastenboek goedkeuren"
+layout = "default"
+url = "/gig/:uuid"
+==
+<?php
+use Tailor\Models\EntryRecord;
+
+function onStart() {
+    $uuid = rawurlencode($this->param('uuid'));
+    if ($uuid){
+    $record = EntryRecord::inSection('Gastenboek')->where('goedkeur_uuid', $uuid)->first();
+    if($record) {
+        $this['found'] = 1;
+        $record->is_enabled = 1;
+        $record->save();
+    }    
+    }
+}
+?>
+==
+<section class="section-padding mt-5">
+    <div class="auto-container container-content text-center">
+    {% if found == 1 %}
+        <h3>Goedkeuring geslaagd!</h3>
+        <p>Je hebt het gastenboek item goedgekeurd en het is nu zichtbaar in het gastenboek.</p>
+{% else %}
+        <h3>Goedkeuring mislukt!</h3>
+        <p>Bekijk via het cms wat er is misgelopen en keur goed via het cms.</p>
+{% endif %}
+
+    </div>
+</section>

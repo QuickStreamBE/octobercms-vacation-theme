@@ -1,0 +1,13 @@
+url = "/boek-nu"
+layout = "default"
+title = "Beschikbaarheid"
+
+[collection villas]
+handle = "Villa"
+==
+{% partial "helpers/page-title" title=this.page.title %}
+<section class="layout-pt-lg layout-pb-lg">
+    <div class="container">
+        <iframe src="{{villa.book_link}}" frameBorder="0" width="100%" height="1000px" allowTransparency></iframe>
+    </div>
+</section>

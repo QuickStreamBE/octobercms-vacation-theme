@@ -1,0 +1,25 @@
+uuid: e29d8c63-f74a-4926-bf90-11f0c1971f14
+handle: Omgeving
+type: structure
+name: Omgeving
+
+primaryNavigation:
+    label: Content
+    icon: icon-pencil-square-o
+    order: 120
+
+navigation:
+    icon: icon-long-arrow-right
+    parent: Omgeving
+    order: 10
+
+fields:
+    summary_text:
+        label: Summary Text
+        type: textarea
+        size: small
+    image:
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1

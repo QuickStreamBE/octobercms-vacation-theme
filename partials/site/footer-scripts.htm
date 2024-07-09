@@ -1,0 +1,94 @@
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+<script src="{{'assets/js/vendors.js'|theme}}"></script>
+<script src="{{'assets/js/main.js'|theme}}"></script>
+<script src="{{'assets/js/cookieconsent.js'|theme}}"></script>
+{% framework extras %}
+{% scripts %}
+<script>
+    CookieConsent.run({
+        guiOptions: {
+            consentModal: {
+                layout: 'box wide',
+                position: 'bottom right',
+                flipButtons: false,
+                equalWeightButtons: true
+            },
+            preferencesModal: {
+                layout: 'cloud',
+                // position: 'left right',
+                flipButtons: false,
+                equalWeightButtons: true
+            }
+        },
+        categories: {
+            necessary: {
+                enabled: true,  // this category is enabled by default
+                readOnly: true  // this category cannot be disabled
+            },
+            functionality: {},
+            analytics: {
+                services: {
+                    ga: {
+                        label: 'Google Analytics',
+                        onAccept: () => {
+                            // enable ga
+                        },
+                        onReject: () => {
+                            // disable ga
+                        },
+                        cookies: [
+                            {
+                                name: /^(_ga|_gid)/
+                            }
+                        ]
+                    },
+                }
+            }
+        },
+        language: {
+            default: '{{ this.site.code }}',
+            translations: {
+                nl: {
+                    consentModal: {
+                        title: 'Cookiebeleid',
+                        description: 'We gebruiken cookies om je de beste ervaring op onze website te bieden. Door verder te bladeren, ga je akkoord met ons gebruik van cookies. Lees ons cookiebeleid voor meer informatie en geniet van je digitale reis!',
+                        acceptAllBtn: 'Alle cookies aanvaarden',
+                        acceptNecessaryBtn: 'Enkel functionele cookies aanvaarden',
+                        showPreferencesBtn: 'Je voorkeuren aanpassen',
+                    },
+                    preferencesModal: {
+                        title: 'Cookie instellingen',
+                        acceptAllBtn: 'Alle cookies aanvaarden',
+                        acceptNecessaryBtn: 'Enkel functionele cookies aanvaarden',
+                        savePreferencesBtn: 'Huidige instellingen opslaan',
+                        sections: [
+                            {
+                                title: 'Ontdek onze cookie instellingen',
+                                description: 'Cookies zijn kleine stukjes gegevens die door een website worden verzonden en door de webbrowser van de gebruiker op de computer van de gebruiker worden opgeslagen terwijl deze surft. Uw browser slaat elk bericht op in een klein bestandje, cookie genaamd. Wanneer u een andere pagina van de server opvraagt, stuurt uw browser de cookie terug naar de server. Cookies zijn ontworpen als een betrouwbaar mechanisme voor websites om informatie te onthouden of om de surfactiviteiten van de gebruiker vast te leggen.'
+                            },
+                            {
+                                title: 'Essentiële cookies',
+                                description: 'Deze cookies zijn om puur technische redenen nodig voor de normale werking van de website. Gezien de technische noodzaak van deze cookies geldt er alleen een informatieverplichting. Deze cookies worden geplaatst zodra je de site bezoekt en kunnen niet geweigerd worden.',
+                                linkedCategory: 'necessary'
+                            },
+                            {
+                                title: "Functionele cookies",
+                                description: "Deze cookies houden informatie bij over jouw keuzes en voorkeuren op een site. Je kan deze cookies niet weigeren als je optimaal door deze website wilt navigeren, maar ze worden pas geplaatst nadat je een keuze hebt gemaakt met betrekking tot de cookies.",
+                                linkedCategory: 'functionality'
+                            },
+                            {
+                                title: 'Analytische cookies',
+                                description: 'Wij raadplegen de gebruikersstatistieken van onze website via Google Analytics. Hiervoor worden een aantal cookies geladen wanneer u de site bezoekt. Via deze cookies kunnen wij, nagaan hoeveel bezoekers onze website raadplegen en bepaalde demografische gegevens (bv. land van oorsprong) verzamelen. Wij houden uw IP-adres bij. Ook worden de gegevens voor een duur van 50 maanden bijgehouden.',
+                                linkedCategory: 'analytics'
+                            },
+                            {
+                                title: 'Nieuwsgierig naar de magie achter de schermen?',
+                                description: 'Wil je meer weten over onze koekjes? Lees ons <a target="_blank" href="{{'cookiebeleid'|page}}">cookiebeleid</a> voor alle  details.'
+                            }
+                        ]
+                    }
+                },
+            }
+        }
+    });
+</script>

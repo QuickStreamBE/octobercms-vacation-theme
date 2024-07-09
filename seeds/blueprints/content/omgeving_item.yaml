@@ -1,0 +1,30 @@
+uuid: f5a3eb60-f4ed-46d0-a9c8-21570a41040d
+handle: OmgevingItem
+type: structure
+name: OmgevingItem
+
+navigation:
+    icon: icon-long-arrow-right
+    parent: Omgeving
+    order: 10
+
+fields:
+    content:
+        label: Content
+        type: richeditor
+    image:
+        label: Image
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    category:
+        label: Categorie
+        type: entries
+        source: Omgeving
+        displayMode: relation
+        maxItems: 1
+    favorite:
+        label: Favorite
+        type: checkbox
+    url:
+        label: URL    

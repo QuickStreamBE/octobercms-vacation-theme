@@ -1,0 +1,33 @@
+<link rel="icon" type="image/png" href="{% if global.favicon %}{{ global.favicon.path }}{% else %}{{ 'assets/img/general/favicon.ico'|theme }}{% endif %}">
+<style>
+    {% if global.theme_color == 'blue' %}
+    {% set themeColor1 = '#05073c' %}
+    {% set themeColor2 = '#faf9fd' %}
+    {% set themeColor3 = '#4a43c4' %}
+    {% set themeColor4 = 'brightness(0) saturate(100%) invert(54%) sepia(6%) saturate(3190%) hue-rotate(205deg) brightness(88%) contrast(91%)' %}
+    {% elseif global.theme_color == 'orange' %}
+    {% set themeColor1 = '#05073c' %}
+    {% set themeColor2 = '#fef7f4' %}
+    {% set themeColor3 = '#eb662b' %}
+    {% set themeColor4 = 'invert(88%) sepia(21%) saturate(935%) hue-rotate(7deg) brightness(85%) contrast(97%)' %}
+    {% endif %}
+    :root {
+        --theme-color-1: {{themeColor1}};
+        --theme-color-2: {{themeColor2}};
+        --theme-color-3: {{themeColor3}};
+        --theme-color-4: {{themeColor4}};
+    }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{'assets/css/vendors.css'|theme}}">
+<link rel="stylesheet" href="{{'assets/css/main.css'|theme}}">
+<link rel="stylesheet" href="{{'assets/css/custom.css'|theme}}">
+<link rel="stylesheet" href="{{'assets/css/cookieconsent.css'|theme}}">
+{% styles %}

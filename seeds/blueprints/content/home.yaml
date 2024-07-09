@@ -1,0 +1,40 @@
+uuid: b67dd4a0-dd69-4561-ad24-e2e8b3c758be
+handle: Home
+type: single
+name: Home
+
+navigation:
+    icon: icon-long-arrow-right
+    parent: Omgeving
+    order: 10
+
+fields:
+    banner_text:
+        label: Summary Text
+        tab: Summary
+    banner_image:
+        label: Gallery
+        tab: Summary
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    villa_block_title:
+        label: Title
+        tab: Villa
+    villa_block_description:
+        label: Description
+        tab: Villa
+        type: richeditor
+    villa_block_image:
+        label: Image
+        tab: Villa
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    omgeving_title:
+        label: Title
+        tab: Omgeving
+    omgeving_description:
+        label: Description
+        tab: Omgeving
+        type: richeditor

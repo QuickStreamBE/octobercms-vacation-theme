@@ -1,0 +1,60 @@
+uuid: f3be12a3-8a03-4ced-afe5-1d400f6ac919
+handle: Villa
+type: single
+name: Villa
+
+navigation:
+    icon: icon-long-arrow-right
+    parent: Omgeving
+    order: 10
+
+fields:
+    summary_text:
+        label: Summary Text
+        tab: Summary
+        type: textarea
+    gallery:
+        label: Gallery
+        tab: Summary
+        type: fileupload
+        mode: image
+    address:
+        label: Address
+        tab: Summary
+    book_link:
+        label: Book Link
+        tab: Summary
+    youtube_url:
+        label: Youtube URL Code
+        tab: Summary
+        commentAbove: "Voorbeeld: https://youtube.com/shorts/mPa9NIJ4T3o?si=LRW3ZKUBcZtXP_VK (code is: mPa9NIJ4T3o)"
+    content:
+        label: Content
+        tab: Content
+        type: richeditor
+        span: adaptive
+    transport:
+        label: Transport
+        tab: Transport
+        type: richeditor
+        span: adaptive
+    prices:
+        label: Prijzen
+        tab: Prices
+        type: richeditor
+        span: adaptive
+    facilities:
+        type: repeater
+        tab: Summary
+        form:
+            fields:
+                icon:
+                    label: Icon
+                    type: fileupload
+                    mode: image
+                    maxFiles: 1
+                title:
+                    label: Title
+                favorite:
+                    label: Favorite
+                    type: checkbox

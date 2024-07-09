@@ -1,0 +1,16 @@
+uuid: 2c921fdf-e257-48f5-be74-dc6967b2226c
+handle: Cookiepolicy
+type: single
+name: Cookiepolicy
+drafts: true
+
+navigation:
+    parent: Omgeving
+    icon: icon-long-arrow-right
+    order: 150
+
+fields:
+    content:
+        label: Content
+        type: richeditor
+        span: adaptive

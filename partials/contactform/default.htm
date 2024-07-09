@@ -1,0 +1,41 @@
+{{ form_ajax(__SELF__ ~'::onFormSubmit', {validate: true, files: true}) }}
+<div class="contactForm">
+    <div class="row y-gap-30">
+
+        <div class="col-md-6">
+            <input type="text" placeholder="Naam*" name="naam" required>
+        </div>
+        <div class="col-md-6">
+            <input type="text" placeholder="Telefoon" name="telefoon">
+        </div>
+        <div class="col-12">
+            <input type="text" placeholder="E-mailadres*" name="Email" required>
+        </div>
+        <div class="col-12">
+            <textarea placeholder="Typ hier uw bericht*..." rows="6" name="bericht" required></textarea>
+        </div>
+        <div class="col-12 d-flex">
+            <input class="form-check-input check-privacy" type="checkbox" value="" id="flexCheckDefault"
+                   required/>
+            <label class="form-check-label ms-2" for="flexCheckDefault">
+                Ik heb de <a class="privacy-link" href="{{'privacybeleid'|page}}" target='_blank'>privacy
+                policy</a> gelezen en goedgekeurd.
+            </label>
+        </div>
+        {% partial '@filepond' %}
+
+        <div class="col-12">
+            <button class="button -md -dark-1 bg-accent-1 text-white col-12"
+                    data-attach-loading>
+                VERZENDEN
+            </button>
+        </div>
+
+        <div>
+            {% partial '@recaptcha' %}
+        </div>
+
+        <div id="{{ uploadForm }}_forms_flash"></div>
+    </div>
+</div>
+{{ form_close() }}

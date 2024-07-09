@@ -1,0 +1,10 @@
+url = "/omgeving"
+layout = "default"
+title = "Omgeving"
+meta_title = "Omgeving"
+
+[collection]
+handle = "Omgeving"
+==
+{% partial "helpers/page-title" title=this.page.title %}
+{% partial "omgeving/overview" collection=collection hideHeader=true %}

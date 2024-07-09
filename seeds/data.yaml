@@ -1,0 +1,14 @@
+-
+    name: Cookiepolicy
+    class: Tailor\Models\RecordImport
+    file: seeds/data/cookiepolicy.json
+    attributes:
+        file_format: json
+        blueprint_uuid: 2c921fdf-e257-48f5-be74-dc6967b2226c
+-
+    name: Privacypolicy
+    class: Tailor\Models\RecordImport
+    file: seeds/data/privacypolicy.json
+    attributes:
+        file_format: json
+        blueprint_uuid: b1c0972a-2656-4b35-8432-740a5111ce7c

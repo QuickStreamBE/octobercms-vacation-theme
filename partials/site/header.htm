@@ -1,0 +1,62 @@
+[collection villa]
+handle = "Villa"
+==
+<header class="header -type-10 js-header {% if this.page.id != 'home' %} dark-background-header {% endif %}">
+    <div class="header__container">
+        <div class="headerMobile__left">
+            <button class="header__menuBtn js-menu-button">
+                <i class="icon-main-menu text-white"></i>
+            </button>
+        </div>
+
+        <div class="header__left">
+            <div class="header__logo">
+                <a href="{{'home'|page}}" class="header__logo">
+                    {% if global.logo %}
+                    <img src="{{'assets/img/general/elremanso.jpg'|theme}}" alt="logo icon">
+                    {% else %}
+                    <span>{{ global.website_name }}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+
+        <div class="header__right">
+
+            <div class="desktopNav -light">
+                {% set menuItems = ['home', 'villa', 'omgeving', 'gastenboek', 'contact'] %}
+                {% for menuItem in menuItems %}
+                {% partial 'helpers/header-menu-item' title=menuItem %}
+                {% endfor %}
+                {% if villa.book_link %}
+                <a href="{{'boek-nu'|page}}"
+                   class="button -sm -outline-white text-white rounded-200 ml-30">
+                    Beschikbaarheid
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="menu js-menu">
+    <div class="menu__overlay js-menu-button"></div>
+
+    <div class="menu__container">
+        <div class="menu__header">
+            <h4>Menu</h4>
+
+            <button class="js-menu-button"><i class="icon-cross text-10"></i></button>
+        </div>
+
+        <div class="menu__content">
+            <ul class="menuNav js-navList">
+                {% for menuItem in menuItems %}
+                <li class="menuNav__item">
+                    <a href="{{menuItem|page}}">{{ menuItem|capitalize }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

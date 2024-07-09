@@ -1,0 +1,184 @@
+url = "/gastenboek"
+layout = "default"
+title = "Gastenboek"
+meta_title = "Gastenboek"
+
+[collection]
+handle = "Gastenboek"
+==
+<?php
+use Illuminate\Support\Str;
+use Tailor\Models\EntryRecord;
+
+function onSubmit()
+{
+    $naam = input('naam');
+    $omschrijving = input('omschrijving');
+    $title = $naam . ' ' . substr($omschrijving,0,30);
+    $slug = Str::slug($title, '-');
+    $goedkeur_uuid = Str::uuid();
+    $url = config('app.url'). '/gig/' . $goedkeur_uuid;
+
+    $gastenboek = EntryRecord::inSection('Gastenboek');
+    $gastenboek->title = $naam;
+$gastenboek->published_at = date('Y-m-d H:i:s');
+$gastenboek->omschrijving = $omschrijving;
+$gastenboek->slug = $slug;
+$gastenboek->is_enabled = 0;
+$gastenboek->goedkeur_uuid = $goedkeur_uuid;
+
+if((array) files('fotos')){
+$maxAllowedFiles = 3;
+$maxFileSizeMB = 2;  // Maximum bestandsgrootte in megabytes
+$totalFileSize = 0;
+
+$gastenboek->fotos = (array) files('fotos');
+
+// Loop door elk geüpload bestand
+foreach (files('fotos') as $file) {
+// Voeg de bestandsgrootte toe aan de totale grootte
+$totalFileSize += $file->getSize();
+}
+
+// Controleer de totale bestandsgrootte
+if ($totalFileSize > $maxFileSizeMB * 1024 * 1024) {
+throw new AjaxException([
+'error' => 'Totale bestandsgrootte overschrijdt het toegestane maximum van ' . $maxFileSizeMB . 'MB',
+]);
+}
+
+if(count((array) files('fotos')) > $maxAllowedFiles){
+throw new AjaxException([
+'error' => 'Maximum aantal bestanden overschreden',
+]);
+}
+}
+
+if ($gastenboek->save()) {
+Mail::sendTo('tim@quickstream.be','backend::mail.gastenboek', ['naam' => $naam, 'omschrijving' => $omschrijving, 'url' => $url]);
+}
+}
+?>
+==
+<section class="layout-pt-lg layout-pb-lg">
+    <div class="container">
+        <div class="row y-gap-30 justify-center">
+            <div class="col-lg-8">
+                <h2 class="text-30 mt-30">Gastenboek</h2>
+
+
+                {% set collection = collection.paginate(5) %}
+                {% for item in collection %}
+                <div class="pt-30">
+                    <div class="row justify-between">
+                        <div class="col-auto">
+                            <div class="d-flex items-center">
+
+                                <div class="text-16 fw-500">{{ item.title }}</div>
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <div class="text-14 text-light-2">{{ item.published_at|date('j F Y') }}</div>
+                        </div>
+                    </div>
+
+                    <p class="mt-10">{{ item.omschrijving|raw }}</p>
+                    {% for image in item.fotos %}
+                    <div class="col-lg-4 col-6 gallery-block-1 masonry-item all cat-1">
+                        <div class="gallery-block-1-inner-box" style="height: 145px;">
+                            <div class="gallery-block-1-image">
+                                <img src="{{image.thumb(410, 320)}}" alt=""/>
+                            </div>
+                            <div class="gallery-block-1-overlay">
+                                <div class="gallery-block-1-lower-content">
+                                    <div class="gallery-block-1-link-btn">
+                                        <a href="{{image.path}}" class="lightbox-image" data-fancybox="gallery"><span
+                                            class="icon-24"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                {{ collection.links|raw }}
+
+                <h2 class="text-30 pt-60">Schrijf een bericht</h2>
+                <form data-request="onSubmit" data-request-redirect="success" data-request-files="true"
+                      enctype="multipart/form-data" data-request-error="handleError(data)" class="contactForm">
+                    <div class="alert alert-danger" role="alert" id="error-alert" style="display: none;">
+                        This is a danger alert—check it out!
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="exampleFormControlInput1">Naam*</label>
+                        <input class="form-control" id="exampleFormControlInput1" name="naam" required>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="exampleFormControlTextarea1">Bericht*</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="omschrijving"
+                                  required placeholder="Typ hier uw bericht..."
+                                  oninput="updateCharacterCount(); truncateText();"></textarea>
+                        <small id="characterCount" class="text-muted">Maximaal 300 tekens.</small>
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="exampleFormControlTextarea1">Afbeeldingen</label>
+                        <input class="form-control file-upload" id="fotos" name="fotos[]" multiple="true" type="file">
+                        <small class="file-upload-info text-muted">Deel hier enkele persoonlijke foto’s van jouw vakantie met ons (Max 3)</small>
+                    </div>
+                    <div class="form-group my-3">
+                        <input class="form-check-input check-privacy" type="checkbox" value="" id="flexCheckDefault"
+                               required/>
+                        <label class="form-check-label ms-2" for="flexCheckDefault">
+                            Ik heb de <a class="privacy-link" href="{{'privacybeleid'|page}}" target='_blank'>privacy
+                            policy</a> gelezen en goedgekeurd.
+                        </label>
+                    </div>
+                    <button class="button -md -dark-1 bg-accent-1 text-white" type="submit" data-loading-text="Please wait..." data-attach-loading>
+                        VERZENDEN
+                        <i class="icon-arrow-top-right text-16 ml-10"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function handleError(data) {
+        // Toon de foutmelding in de alert-danger div
+        var errorAlert = document.getElementById('error-alert');
+        errorAlert.style.display = 'block';
+        errorAlert.innerHTML = 'Foutmelding: ' + data.error;
+
+        // Hier kun je eventueel andere acties ondernemen, afhankelijk van je vereisten
+        // bijvoorbeeld het herstellen van de alert na een paar seconden, etc.
+    }
+
+    let maxAantalKarakters = 300;
+    function updateCharacterCount() {
+        var textarea = document.getElementById("exampleFormControlTextarea1");
+        var characterCount = document.getElementById("characterCount");
+
+        // Bereken het aantal resterende tekens
+        var remainingChars = maxAantalKarakters - textarea.value.length;
+
+        // Bijwerken van de weergegeven tekst
+        characterCount.textContent = "Maximaal "+maxAantalKarakters+" tekens. Nog " + remainingChars + " tekens over.";
+
+        // Optioneel: Je kunt de stijl van de tekst aanpassen als het limiet wordt overschreden
+        if (remainingChars < 0) {
+            characterCount.style.color = "red";
+        } else {
+            characterCount.style.color = ""; // Terugzetten naar de standaardkleur
+        }
+    }
+    function truncateText() {
+        var textarea = document.getElementById("exampleFormControlTextarea1");
+
+        // Controleren op overschrijding van het maximum aantal tekens
+        if (textarea.value.length > maxAantalKarakters-1) {
+            textarea.value = textarea.value.substring(0, maxAantalKarakters-1);
+        }
+    }
+</script>

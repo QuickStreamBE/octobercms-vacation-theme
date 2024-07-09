@@ -1,0 +1,329 @@
+.header__logo img {
+    width: 200px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.footer__policy a {
+    margin-left: 20px;
+}
+
+.hero__title {
+    font-family: 'Poppins';
+    font-weight: 500 !important;
+}
+
+.font-elremanso {
+    font-family: 'Poppins';
+    font-weight: 200;
+}
+
+.has-dropcap:first-letter {
+    float: left;
+    font-size: 4rem;
+    line-height: 0.55;
+    margin: 0.2em 0.1em 0.1em 0;
+}
+
+.page-banner h1 {
+    font-size: 35px !important;
+}
+
+.omgeving-item {
+    transition: background-color 0.3s ease-out;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s ease-in;
+
+        h3 {
+            text-decoration: underline;
+        }
+    }
+}
+
+.cta-banner {
+    margin-bottom: 120px;
+}
+
+.facility-overview {
+    border-top: 1px solid #E7E6E6;
+    padding: 20px 0px;
+}
+
+.facility-item {
+    margin-right: 30px;
+}
+
+.facility-item img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.facility-item div {
+    color: var(--color-dark-1);
+}
+
+.facility-icon {
+    height: 45px;
+    width: 45px;
+    margin-right: 25px;
+    filter: var(--theme-color-4);
+}
+.contact-block{
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 25px;
+    height: 100%;
+}
+.review-text p{
+    font-weight: 500;
+    font-size: var(--text-20) !important;
+}
+.container-small{
+    max-width: 700px;
+}
+.omgeving-icon{
+    height: 75px;
+    width: 75px;
+    margin-right: 25px;
+    filter: var(--theme-color-4);
+}
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+/* For devices with a max width of 767px (Mobile devices) */
+@media only screen and (max-width: 767px) {
+    .hero__bg{
+        height: 250px;
+    }
+    .layout-pt-xl{
+        padding-top: 120px;
+    }
+    .hero.-type-1.-min-2{
+        padding-bottom: 0px;
+    }
+    .menuNav{
+        padding-left: 0px;
+    }
+    .page-banner .hero__title{
+        margin-top: -140px;
+    }
+    .layout-pt-lg{
+        padding-top: 100px;
+    }
+
+    .map {
+        height: 500px;
+    }
+    .container-small{
+        padding: 0 20px;
+    }
+    .villas-row{
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .facility-item{
+        margin-top: 15px;
+    }
+    .header__logo span{
+        font-size: 25px!important;
+    }
+    .header.-type-10 .header__container{
+        justify-content: initial!important;
+    }
+    .header__logo{
+        margin-left: 10px;
+    }
+    .mt-150{
+        margin-top: 0px!important;
+    }
+    .villa-item{
+        padding: 10px!important;
+    }
+    .villa-item .sectionBg{
+        display: none;
+    }
+    .villa-item img{
+        height: 300px!important;
+    }
+    .hero__bg img{
+        height: 340px!important;
+    }
+    .villa-icon-item h3{
+        font-size: 20px!important;
+        font-weight: 500;
+    }
+    .form-check-label{
+        line-height: 20px;
+    }
+}
+/* General pagination styles */
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+/* Page link styling */
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.25rem;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover and focus styles for page links */
+.page-link:hover, .page-link:focus {
+    color: #0056b3;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+/* Active page item styles */
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Disabled page item styles */
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+/* Rounded first and last page item styles */
+.page-item.first .page-link, .page-item.last .page-link {
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+/* Hover and focus styles for first and last page items */
+.page-item.first .page-link:hover, .page-item.last .page-link:hover {
+    color: #0056b3;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+/* Specific styles for arrows */
+.page-item.first .page-link, .page-item.last .page-link {
+    font-weight: bold;
+}
+
+.page-item.first.disabled .page-link, .page-item.last.disabled .page-link {
+    background-color: #fff;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+/* Custom hover effect for modern look */
+.page-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 123, 255, 0.1);
+    opacity: 0;
+    border-radius: 0.25rem;
+    transition: opacity 0.3s ease;
+}
+
+.page-link:hover::before {
+    opacity: 1;
+}
+.header__logo span{
+    font-family: 'Poppins';
+    font-size: 40px;
+    color: #ffffff;
+}
+.banner-omgeving-icon img{
+    width: 50px;
+    margin-right: initial;
+}
+.villa-icon{
+    height: 75px;
+    width: 75px;
+    filter: var(--theme-color-4);
+}
+.page-banner-title{
+    font-size: 40px!important;
+    font-weight: 300!important;
+}
+.header.-type-10.-is-sticky, .dark-background-header{
+    background-color: var(--theme-color-1)!important;
+}
+.bg-accent-1-05{
+    background-color: var(--theme-color-2)!important;
+}
+.bg-accent-1{
+    background-color: var(--theme-color-3)!important;
+}
+.-hover-accent-1:hover{
+    background-color: var(--theme-color-3)!important;
+}
+.featureCard.-type-5.-hover-accent-1 .featureCard__icon{
+    background-color: var(--theme-color-2)!important;
+}
+.mt-150{
+    margin-top: 150px;
+}
+.toTopButton svg{
+    fill: var(--theme-color-3)!important;
+}
+.toTopButton:hover{
+    background-color: var(--theme-color-3)!important;
+}
+.header .desktopNav > *:hover, .desktopNav .active{
+    background-color: rgb(255 255 255 / 25%);
+}
+.header .desktopNav > * {
+    padding: 8px 20px;
+    margin-left: 3px;
+}
+.form-check-label a{
+    color: var(--theme-color-3)!important;
+}
+.form-check-label a:hover{
+    text-decoration: underline;
+}

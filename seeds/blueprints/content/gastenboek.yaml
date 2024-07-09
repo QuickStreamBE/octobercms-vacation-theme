@@ -1,0 +1,33 @@
+uuid: 0ae44f79-52d4-420e-8ddf-f3a8c2e604f4
+handle: Gastenboek
+type: entry
+name: Gastenboek
+drafts: false
+
+navigation:
+    parent: Omgeving
+    icon: icon-long-arrow-right
+    order: 150
+
+fields:
+    omschrijving:
+        label: Omschrijving
+        type: richeditor
+        size: large
+    goedkeur_uuid:
+        label: Goedkeur uuid
+        type: text
+        hidden: true
+    favoriet:
+        label: Favoriet
+        type: switch
+    fotos:
+        label: Foto's
+        type: fileupload
+        maxFiles: 3
+
+columns:
+    omschrijving:
+        type: text
+    favoriet:
+        type: switch

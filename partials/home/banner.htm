@@ -1,0 +1,30 @@
+<section data-anim-wrap class="hero -type-10 layout-pb-xl">
+    <div data-anim-child="fade" class="hero__bg">
+        <img src="{% if home.banner_image %}{{home.banner_image.path|resize(1800)}}{% else %}{{'assets/img/hero/10/1.jpg'|theme|resize(1000)}}{% endif %}" alt="background">
+    </div>
+
+    <div class="container">
+        <div class="row justify-center text-center">
+            <div class="col-xl-9 col-lg-10">
+                <div class="hero__content">
+                    <h1 data-anim-child="slide-up delay-2" class="hero__title text-white">
+                        {{home.banner_text}}
+                    </h1>
+
+                    <div data-anim-child="slide-up delay-5" class="heroTags">
+                        <div class="heroTags__tags">
+
+                            <div>
+                                <a href="{{'villa'|page}}"
+                                   class="button -sm -dark-1 bg-accent-1 rounded-200 text-white ml-30">
+                                    Ontdek de villa
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

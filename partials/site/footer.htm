@@ -1,0 +1,86 @@
+[collection villas]
+handle = "Villa"
+==
+<footer class="footer -type-1 -light bg-dark-1">
+    <div class="footer__main">
+        <div class="container">
+            <div class="footer__content">
+                <div class="row y-gap-40 justify-between">
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="text-20 fw-500 text-white">Contact</h4>
+
+                        <div class="y-gap-10 mt-20 text-white">
+                            {{ global.address }}
+                            <a class="d-block" href="mailto:{{global.email}}">{{ global.email }}</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-auto col-6">
+                        <h4 class="text-20 fw-500 text-white">Navigeer</h4>
+
+                        <div class="y-gap-10 mt-20 text-white">
+                            <a class="d-block fw-500" href="{{'villa'|page}}">
+                                Villa
+                            </a>
+
+                            <a class="d-block fw-500" href="{{'omgeving'|page}}">
+                                Omgeving
+                            </a>
+
+                            <a class="d-block fw-500" href="{{'gastenboek'|page}}">
+                                Gastenboek
+                            </a>
+
+                            <a class="d-block fw-500" href="{{'contact'|page}}">
+                                Contact
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-20 fw-500 text-white">Wettelijk</h4>
+
+                        <div class="y-gap-10 mt-20 text-white">
+
+                            <a class="d-block fw-500" href="{{'privacybeleid'|page}}">
+                                Privacybeleid
+                            </a>
+
+                            <a class="d-block fw-500" href="{{'cookiebeleid'|page}}">
+                                Cookiebeleid
+                            </a>
+
+                            <a class="d-block fw-500" data-cc="show-preferencesModal" href="#"
+                               onclick="return false;">
+                                Cookie instellingen
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="border-white-15-top">
+        <div class="container">
+            <div class="footer__bottom">
+                <div class="row y-gap-5 justify-between items-center">
+                    <div class="col-auto text-white">
+                        <div>Copyright {{ global.website_name }} {{ 'now' | date('Y') }}</div>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="footer__images d-flex items-center x-gap-10">
+                            <div class="footer__images d-flex items-center text-white">
+                                designed by&nbsp;<a href="https://quickstream.be" target="_blank">quickstream</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
