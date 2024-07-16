@@ -1,0 +1,9 @@
+{
+    "name": "quickstream/octobercms-vacation-theme",
+    "type": "october-theme",
+    "description": "Vacation theme for October",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "license": "MIT"
+}
