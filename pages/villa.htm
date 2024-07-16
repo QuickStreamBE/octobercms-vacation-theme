@@ -63,7 +63,13 @@ value = "{{ :slug }}"
                 <iframe src="{{section.book_link}}"
                         frameBorder="0" width="100%" height="1400px" allowTransparency></iframe>
                 {% endif %}
+                <div id="calendar"></div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    new Calendar('#calendar', {
+        language: 'nl'
+    });
+</script>
