@@ -1,0 +1,19 @@
+{% if home.location_block_title %}
+<section class="layout-pt-md layout-pb-xl">
+    <div class="container">
+        <div class="row y-gap-20 pt-30">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="text-30 md:text-24">{{home.location_block_title}}</h2>
+                    </div>
+                </div>
+                {{home.location_block_description|raw}}
+            </div>
+            <div class="col-lg-6 md:p-5">
+                <img class="rounded-8" src="{{home.location_block_image|resize(700)}}">
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

@@ -38,3 +38,43 @@ fields:
         label: Description
         tab: Omgeving
         type: richeditor
+    location_block_title:
+        label: Title
+        tab: Location
+    location_block_description:
+        label: Description
+        tab: Location
+        type: richeditor
+    location_block_image:
+        label: Image
+        tab: Location
+        type: fileupload
+        mode: image
+        maxFiles: 1
+    weather_block_title:
+        label: Title
+        tab: Weather
+    weather_min_dec:
+        label: Min Dec
+        tab: Weather
+    weather_max_dec:
+        label: Max Dec
+        tab: Weather
+    weather_min_mar:
+        label: Min Mar
+        tab: Weather
+    weather_max_mar:
+        label: Max Mar
+        tab: Weather
+    weather_min_jun:
+        label: Min Jun
+        tab: Weather
+    weather_max_jun:
+        label: Max Jun
+        tab: Weather
+    weather_min_sep:
+        label: Min Sep
+        tab: Weather
+    weather_max_sep:
+        label: Max Sep
+        tab: Weather

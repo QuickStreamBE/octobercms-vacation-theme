@@ -1,0 +1,49 @@
+{% if home.weather_block_title %}
+<section>
+    <div data-anim-wrap class="container">
+        <div class="line mt-40 mb-40"></div>
+
+        <div class="row y-gap-20">
+            <div class="col-12">
+                <h3 class="text-20 fw-500">{{ home.weather_block_title }}</h3>
+            </div>
+
+
+            <div class="col-lg-3 col-6">
+                <div>DEC - FEB</div>
+                <div class="d-flex text-20 fw-500 pt-5">
+                    <span>{{ home.weather_min_dec }}°C</span>
+                    <span class="ml-20">{{ home.weather_max_dec }}°C</span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div>MAR - MEI</div>
+                <div class="d-flex text-20 fw-500 pt-5">
+                    <span>{{ home.weather_min_mar }}°C</span>
+                    <span class="ml-20">{{ home.weather_max_mar }}°C</span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div>JUN - AUG</div>
+                <div class="d-flex text-20 fw-500 pt-5">
+                    <span>{{ home.weather_min_jun }}°C</span>
+                    <span class="ml-20">{{ home.weather_max_jun }}°C</span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div>SEP - NOV</div>
+                <div class="d-flex text-20 fw-500 pt-5">
+                    <span>{{ home.weather_min_sep }}°C</span>
+                    <span class="ml-20">{{ home.weather_max_sep }}°C</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="line mt-40 mb-40"></div>
+    </div>
+</section>
+{% endif %}
