@@ -1,7 +1,19 @@
 [collection reservations]
 handle = "BookingReservation"
 ==
-<div id="calendar" class="mt-30"></div>
+<div class="mt-30">
+    <div class="legend">
+        <div class="legend-item">
+            <div class="box occupied"></div>
+            <span>Bezet</span>
+        </div>
+        <div class="legend-item">
+            <div class="box available"></div>
+            <span>Beschikbaar</span>
+        </div>
+    </div>
+    <div id="calendar"></div>
+</div>
 <script>
     new Calendar('#calendar', {
         language: 'nl',
