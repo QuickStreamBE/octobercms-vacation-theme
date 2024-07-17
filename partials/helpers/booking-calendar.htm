@@ -6,6 +6,8 @@ handle = "BookingReservation"
     new Calendar('#calendar', {
         language: 'nl',
         style: 'background',
+        startDate: new Date(),
+        minDate: new Date(),
         dataSource: [
             {% for reservation in reservations %}
     {
