@@ -1,4 +1,4 @@
-[collection villa]
+[section villa]
 handle = "Villa"
 ==
 <header class="header -type-10 js-header {% if this.page.id != 'home' %} dark-background-header {% endif %}">
@@ -28,7 +28,7 @@ handle = "Villa"
                 {% for menuItem in menuItems %}
                 {% partial 'helpers/header-menu-item' title=menuItem %}
                 {% endfor %}
-                {% if villa.book_link %}
+                {% if villa.book_link or villa.booking_calendar %}
                 <a href="{{'boek-nu'|page}}"
                    class="button -sm -outline-white text-white rounded-200 ml-30">
                     Beschikbaarheid
