@@ -1,0 +1,22 @@
+uuid: aa68551b-23dd-4536-8ca4-ccf4677a64f8
+handle: BookingReservation
+type: entry
+name: Reservations
+drafts: false
+
+navigation:
+    parent: Omgeving
+    icon: icon-long-arrow-right
+    order: 150
+
+fields:
+    title:
+        hidden: true
+    start:
+        label: From
+        type: datepicker
+        mode: date
+    end:
+        label: Till
+        type: datepicker
+        mode: date

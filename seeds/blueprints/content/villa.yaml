@@ -24,6 +24,10 @@ fields:
     book_link:
         label: Book Link
         tab: Summary
+    booking_calendar:
+        label: Show Booking Calendar
+        type: checkbox
+        tab: Summary
     youtube_url:
         label: Youtube URL Code
         tab: Summary
