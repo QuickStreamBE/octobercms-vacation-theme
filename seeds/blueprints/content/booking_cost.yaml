@@ -1,0 +1,26 @@
+uuid: 81b36c7d-5872-49e0-ac82-d84f7efc0229
+handle: BookingCost
+type: structure
+name: Costs
+drafts: false
+
+navigation:
+    parent: Omgeving
+    icon: icon-long-arrow-right
+    order: 150
+
+columns:
+    description:
+        type: text
+    price:
+        type: text
+
+fields:
+    title:
+        hidden: true
+    description:
+        label: Description
+        type: text
+    price:
+        label: Price
+        type: text

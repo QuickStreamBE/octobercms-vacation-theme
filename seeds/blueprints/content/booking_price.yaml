@@ -1,0 +1,35 @@
+uuid: 0af0080a-4d8d-4537-bcef-ef38ae35fec7
+handle: BookingPrice
+type: structure
+name: Prices
+drafts: false
+
+navigation:
+    parent: Omgeving
+    icon: icon-long-arrow-right
+    order: 150
+
+columns:
+    start:
+        type: date
+    end: 
+        type: date
+
+fields:
+    title:
+        hidden: true
+    start:
+        label: From
+        type: datepicker
+        mode: date
+    end:
+        label: Till
+        type: datepicker
+        mode: date
+    price_night:
+        label: Price per night
+    price_week:
+        label: Price per week
+    min_stay:
+        label: Minimum stay
+        validation: "numeric"
