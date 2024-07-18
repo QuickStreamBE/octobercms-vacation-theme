@@ -8,7 +8,11 @@ handle = "Villa"
 identifier = "slug"
 value = "{{ :slug }}"
 ==
-{% partial 'helpers/image-slider' section=section %}
+<section>
+    <div class="container">
+        {% partial 'helpers/image-slider' section=section images=section.gallery title=section.title %}
+    </div>
+</section>
 <section class="layout-pt-md js-pin-container">
     <div class="container">
         <div class="row y-gap-30 justify-between">

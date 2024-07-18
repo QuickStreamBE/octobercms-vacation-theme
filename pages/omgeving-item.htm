@@ -17,13 +17,10 @@ value = "{{ :slug }}"
     <div data-anim-wrap class="container">
         {% for item in filteredCollection %}
         <div class="row mb-20">
-            {% if item.image %}
-            <div class="col-lg-4 col-md-4 {% if loop.index is odd %}order-1{% endif %}">
+            {% if item.image.count > 1 %}
+            <div class="col-lg-4 {% if loop.index is odd %}order-1{% endif %}">
                 <div class="pt-10">
-                    <img
-                        src="{{item.image.path|resize(1000)}}"
-                        alt="image"
-                        class="rounded-12">
+                    {% partial 'helpers/image-slider' images=item.image key=item.id %}
                 </div>
             </div>
             {% endif %}

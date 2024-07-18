@@ -16,7 +16,6 @@ fields:
         label: Image
         type: fileupload
         mode: image
-        maxFiles: 1
     category:
         label: Categorie
         type: entries
@@ -27,4 +26,4 @@ fields:
         label: Favorite
         type: checkbox
     url:
-        label: URL    
+        label: URL

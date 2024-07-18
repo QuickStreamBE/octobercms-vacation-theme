@@ -3,40 +3,46 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
 />
-<section class="mt-150">
-    <div class="container">
-        <div class="row y-gap-20 justify-between items-end mt-80">
-            <div class="col-auto">
-                <h2 class="text-40 sm:text-30 lh-14 mt-20">
-                    {{ section.title }}
-                </h2>
-            </div>
-        </div>
-        <div class="tourSingleGrid -type-1 mt-30">
-            <div class="tourSingleGrid__grid mobile-css-slider-2">
-                {% set galleryFiltered = section.gallery.take(4) %}
-                {% for gallery in galleryFiltered %}
-                <img src="{{gallery.path|resize(700)}}" alt="image" data-fancybox="gallery" role="button">
-                {% endfor %}
-            </div>
-
-            <div class="tourSingleGrid__button">
-                {% for galleryFull in section.gallery %}
-                {% if loop.first %}
-                <a href="{{galleryFull.path|resize(1000)}}" data-fancybox="gallery">
-                    <span
-                        class="button -accent-1 py-10 px-20 rounded-200 bg-dark-1 lh-16 text-white">Bekijk alle</span>
-                </a>
-                {% else %}
-                <a href="{{galleryFull.path|resize(1000)}}" data-fancybox="gallery"></a>
-                {% endif %}
-                {% endfor %}
-            </div>
+<div>
+    {% set thumbImages = 1 %}
+    {% if title %}
+    {% set thumbImages = 4 %}
+    <div class="row y-gap-20 justify-between items-end mt-80">
+        <div class="col-auto">
+            <h2 class="text-40 sm:text-30 lh-14 mt-20">
+                {{ title }}
+            </h2>
         </div>
     </div>
-</section>
+    {% endif %}
+    <div class="tourSingleGrid -type-1 mt-30">
+        <div class="tourSingleGrid__grid mobile-css-slider-2">
+            {% set galleryFiltered = images.take(thumbImages) %}
+            {% set displayedIndices = [] %}
+            {% for gallery in galleryFiltered %}
+            {% set displayedIndices = displayedIndices|merge([loop.index0]) %}
+            <img src="{{gallery.path|resize(700)}}" alt="image" data-fancybox="gallery{{key}}" role="button">
+            {% endfor %}
+        </div>
+
+        <div class="tourSingleGrid__button">
+            {% for galleryFull in images %}
+            {% if loop.index0 not in displayedIndices %}
+            {% if loop.index0 == thumbImages %}
+            <a href="{{galleryFull.path|resize(1000)}}" data-fancybox="gallery{{key}}">
+                            <span
+                                class="button -accent-1 py-10 px-20 rounded-200 bg-dark-1 lh-16 text-white">Bekijk alle</span>
+            </a>
+            {% else %}
+            <a href="{{galleryFull.path|resize(1000)}}" data-fancybox="gallery{{key}}"></a>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 <script>
-    Fancybox.bind('[data-fancybox]', {
+    Fancybox.bind('[data-fancybox="gallery{{key}}"]', {
         //
     });
 </script>
