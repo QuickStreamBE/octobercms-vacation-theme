@@ -9,6 +9,12 @@ navigation:
     icon: icon-long-arrow-right
     order: 150
 
+columns:
+    start:
+        type: date
+    end: 
+        type: date
+
 fields:
     title:
         hidden: true
