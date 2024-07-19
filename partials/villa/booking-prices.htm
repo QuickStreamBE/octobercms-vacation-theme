@@ -1,0 +1,27 @@
+[collection prices]
+handle = "BookingPrice"
+==
+<div class="line mt-60 mb-60"></div>
+<h2 class="text-30">Prijzen</h2>
+<div class="mt-30">
+    <table>
+        <tbody>
+        <tr>
+            <th>Van</th>
+            <th>Tot</th>
+            <th>Per nacht</th>
+            <th>Per week</th>
+            <th>Min. verblijf</th>
+        </tr>
+        {% for price in prices %}
+        <tr>
+            <td>{{price.start|date('d/m/Y')}}</td>
+            <td>{{price.end|date('d/m/Y')}}</td>
+            <td>€ {{price.price_night}}</td>
+            <td>€ {{price.price_week}}</td>
+            <td>{{price.min_stay}} dagen</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

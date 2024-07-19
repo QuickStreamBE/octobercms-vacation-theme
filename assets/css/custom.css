@@ -112,8 +112,6 @@ table th:not(.calendar *) {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
-    color: white;
 }
 
 /* For devices with a max width of 767px (Mobile devices) */

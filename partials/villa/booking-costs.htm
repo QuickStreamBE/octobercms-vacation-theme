@@ -1,0 +1,17 @@
+[collection costs]
+handle = "BookingCost"
+==
+<div class="line mt-60 mb-60"></div>
+<h2 class="text-30">Bijkomende kosten</h2>
+<div class="mt-30">
+    <table>
+        <tbody>
+        {% for cost in costs %}
+        <tr>
+            <td>{{cost.description}}</td>
+            <td>{{cost.price}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
