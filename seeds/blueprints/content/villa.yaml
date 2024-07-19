@@ -32,6 +32,9 @@ fields:
         label: Youtube URL Code
         tab: Summary
         commentAbove: "Voorbeeld: https://youtube.com/shorts/mPa9NIJ4T3o?si=LRW3ZKUBcZtXP_VK (code is: mPa9NIJ4T3o)"
+    license_number:
+        label: License Number
+        tab: Summary
     content:
         label: Content
         tab: Content
