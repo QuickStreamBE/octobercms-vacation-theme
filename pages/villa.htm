@@ -60,6 +60,10 @@ value = "{{ :slug }}"
                 </div>
                 {% endif %}
 
+                {% if section.booking_calendar %}
+                {% partial 'villa/booking-prices' %}
+                {% partial 'villa/booking-costs' %}
+                {% else %}
                 {% if section.prices %}
                 <div class="line mt-60 mb-60"></div>
                 <h2 class="text-30">Prijzen</h2>
@@ -67,12 +71,8 @@ value = "{{ :slug }}"
                     {{ section.prices|raw }}
                 </div>
                 {% endif %}
-
-                {% if section.booking_calendar %}
-                {% partial 'villa/booking-prices' %}
-                {% partial 'villa/booking-costs' %}
-                <div class="mt-60 mb-60"></div>
                 {% endif %}
+                <div class="mt-60 mb-60"></div>
             </div>
         </div>
     </div>
