@@ -11,7 +11,7 @@ value = "{{ :slug }}"
 <section>
     <div class="container">
         {% partial 'helpers/image-slider' section=section images=section.gallery title=section.title %}
-        <div class="d-flex justify-end villa-license-number">Vergunningsnummer: {{ section.license_number }}</div>
+        {% partial 'villa/license_number' section=section%}
     </div>
 </section>
 <section class="layout-pt-md js-pin-container">

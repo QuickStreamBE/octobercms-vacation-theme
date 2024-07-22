@@ -355,3 +355,6 @@ table th:not(.calendar *) {
     font-size: 12px;
     color: #65727e;
 }
+.home-license-number{
+    margin-right: 10px;
+}

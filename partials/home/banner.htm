@@ -1,6 +1,10 @@
+[section villa]
+handle = "Villa"
+==
 <section data-anim-wrap class="hero -type-10 layout-pb-xl">
     <div data-anim-child="fade" class="hero__bg">
         <img src="{% if home.banner_image %}{{home.banner_image.path|resize(1800)}}{% else %}{{'assets/img/hero/10/1.jpg'|theme|resize(1000)}}{% endif %}" alt="background">
+       <div class="home-license-number">{% partial 'villa/license_number' section=villa%}</div>
     </div>
 
     <div class="container">
