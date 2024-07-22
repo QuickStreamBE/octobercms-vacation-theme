@@ -31,7 +31,7 @@ handle = "Villa"
                 {% if global.booking_information_page %}
                 <a href="{{'boek-nu'|page}}"
                    class="button -sm -outline-white text-white rounded-200 ml-30">
-                    Beschikbaarheid
+                    Beschikbaarheid/Tarieven
                 </a>
                 {% endif %}
             </div>
@@ -56,6 +56,11 @@ handle = "Villa"
                     <a href="{{menuItem|page}}">{{ menuItem|capitalize }}</a>
                 </li>
                 {% endfor %}
+                {% if global.booking_information_page %}
+                <li class="menuNav__item">
+                    <a href="{{'boek-nu'|page}}">Beschikbaarheid & Tarieven</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
