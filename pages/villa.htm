@@ -39,19 +39,9 @@ value = "{{ :slug }}"
                     {% endfor %}
                 </div>
 
-                {% if section.book_link %}
-                <div class="line mt-60 mb-60"></div>
-                <h2 class="text-30">Beschikbaarheid</h2>
-                <iframe src="{{section.book_link}}"
-                        frameBorder="0" width="100%" height="1400px" allowTransparency></iframe>
+                {% if global.booking_information_on_villa_page %}
+                {% partial 'villa/booking_information' section=section %}
                 {% endif %}
-
-                {% if section.booking_calendar %}
-                <div class="line mt-60 mb-60"></div>
-                <h2 class="text-30">Beschikbaarheid</h2>
-                {% partial 'helpers/booking-calendar' %}
-                {% endif %}
-
 
                 {% if section.transport %}
                 <div class="line mt-60 mb-60"></div>
@@ -59,19 +49,6 @@ value = "{{ :slug }}"
                 <div class="mt-30">
                     {{ section.transport|raw }}
                 </div>
-                {% endif %}
-
-                {% if section.booking_calendar %}
-                {% partial 'villa/booking-prices' %}
-                {% partial 'villa/booking-costs' %}
-                {% else %}
-                {% if section.prices %}
-                <div class="line mt-60 mb-60"></div>
-                <h2 class="text-30">Prijzen</h2>
-                <div class="mt-30">
-                    {{ section.prices|raw }}
-                </div>
-                {% endif %}
                 {% endif %}
                 <div class="mt-60 mb-60"></div>
             </div>

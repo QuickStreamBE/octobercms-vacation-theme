@@ -5,14 +5,8 @@ title = "Beschikbaarheid"
 [section villa]
 handle = "Villa"
 ==
-{% partial "helpers/page-title" title=this.page.title %}
 <section class="layout-pb-lg">
     <div class="container">
-        {% if villa.booking_calendar %}
-        {% partial 'helpers/booking-calendar' %}
-        {% endif %}
-        {% if villa.book_link %}
-        <iframe src="{{villa.book_link}}" frameBorder="0" width="100%" height="1000px" allowTransparency></iframe>
-        {% endif %}
+        {% partial 'villa/booking_information' section=villa %}
     </div>
 </section>
