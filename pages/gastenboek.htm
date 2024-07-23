@@ -55,7 +55,14 @@ throw new AjaxException([
 }
 
 if ($gastenboek->save()) {
-Mail::sendTo('tim@quickstream.be','backend::mail.gastenboek', ['naam' => $naam, 'omschrijving' => $omschrijving, 'url' => $url]);
+$global = Tailor\Models\GlobalRecord::findForGlobal('General');
+
+Mail::raw([
+'html' => '<p>Er is een nieuwe reactie in het gastenboek van ' . $naam . '</p><p>' . $omschrijving . '</p><p><a href="' . $url . '">Goedkeuren</a></p>',
+], function($message) use ($global){
+$message->subject('Nieuwe gastenboek item');
+$message->to($global->email);
+});
 }
 }
 ?>
